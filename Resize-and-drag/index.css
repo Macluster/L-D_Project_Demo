@@ -1,0 +1,55 @@
+.main {
+  width: 500px;
+  height: 500px;
+  background-color: aquamarine;
+}
+
+.draggable {
+  width: 100px;
+  height: 100px;
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+  cursor: grab;
+}
+
+#dropzone {
+  width: 500px;
+  height: 500px;
+  border: 2px dashed #000;
+  margin-top: 20px;
+  text-align: center;
+  line-height: 150px;
+  color: #000;
+}
+
+.resizable {
+  width: 200px;
+  height: 150px;
+  border: 2px solid red;
+}
+
+.resizer {
+  width: 10px;
+  height: 10px;
+  background: blue;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: se-resize;
+  /* Shows diagonal resizing cursor */
+}
+
+.movable {
+  width: 150px;
+  height: 100px;
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+  position: absolute;
+  /* Allows for absolute positioning */
+  cursor: grab;
+  /* Shows a grab cursor */
+}
