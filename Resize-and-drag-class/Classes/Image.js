@@ -1,6 +1,6 @@
 
 
-class Image extends Container
+class Image extends View
 {
 
     constructor(src)
@@ -9,6 +9,7 @@ class Image extends Container
 
         this.div.style.backgroundImage = `url('${src}')`;
         this.div.style.backgroundSize = "cover";
+    
 
     }
 }

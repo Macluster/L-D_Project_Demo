@@ -1,42 +1,76 @@
 
+
 // Example usage:
 
+function onBackgroundChanged(event) {
 
+
+
+  console.log(event.target.value)
+
+  var view = document.getElementById(currentSelectedContainer + "")
+  console.log(view)
+  view.style.backgroundColor = event.target.value
+
+}
+function onCornerRadiusChanged(event)
+{
+  console.log(event.target.value)
+
+  var view = document.getElementById(currentSelectedContainer + "")
+  console.log(view)
+  view.style.borderRadius= event.target.value + "px";
+}
+
+function onheightChanged(event) {
+
+
+
+  console.log(event.target.value)
+
+  var view = document.getElementById(currentSelectedContainer + "")
+  console.log(view)
+  view.style.height = event.target.value + "px";
+
+}
+
+const pages = [];
+function addPage() {
+  const myDiv = new Page("500px", "500px", "white", "");
+  myDiv.div.id = "page1";
+
+  myDiv
+
+  pages.push(myDiv);
+
+  myDiv.appendTo(".work-space");
+}
+
+const container = [];
+let viewId = 0
 function addContainer() {
+  const myDiv = new View("200px", "200px", "grey", "");
+  myDiv.div.id = "v" + (viewId++)
 
-  console.log("hai")
+  container.push(myDiv);
 
-
-  const myDiv = new Container('200px', '200px', 'yellow', 'Hello, World!');
-
-
-  myDiv.appendTo('.main');
-
-
+  console.log();
+  myDiv.appendTo("#" + pages[0].div.id);
 }
 
 function addTextBox() {
-  const myDiv = new TextBox()
+  const myDiv = new TextBox();
 
-  myDiv.appendTo('.main');
-
+  myDiv.appendTo("#" + pages[0].div.id);
 }
 
-
-
-
-
 function selectImage() {
-
-
   //Adding Photo
   const fileInput = document.getElementById("fileInput");
   const preview = document.createElement("img");
   preview.style.height = "100px";
   preview.style.width = "100px";
   preview.style.backgroundColor = "green";
-
-
 
   fileInput.addEventListener("change", function (event) {
     const file = event.target.files[0];
@@ -45,14 +79,12 @@ function selectImage() {
       const reader = new FileReader();
 
       reader.onload = function (e) {
-
         // Create a new reusable div instance
         const myDiv = new Image(e.target.result);
-        myDiv.div.style.borderRadius = "20px"
+        myDiv.div.style.borderRadius = "20px";
 
         // Append the div to the body
-        myDiv.appendTo('.main');
-
+        myDiv.appendTo(".main");
       };
 
       reader.readAsDataURL(file); // Read the image as a DataURL

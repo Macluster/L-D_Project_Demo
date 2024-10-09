@@ -8,18 +8,38 @@
     <link rel="stylesheet" href="./index.css" />
 </head>
 
-<body>
-
+<body  >
+    
     <button onclick="addContainer()">Add container</button>
     <button onclick="addTextBox()">Add TextBox</button>
+    <button onclick="addPage()">Add Page</button>
+
     <input type="file" onclick="selectImage()" id="fileInput" accept="image/*">
-
-
-
-
     <div class="main">
 
+        <div class="work-space">
+
+        </div>
+
+        <div class="tool-Property-box">
+
+                <h4 >Appearanace</h4>
+                <input placeholder="Select Colour" onchange="onBackgroundChanged(event)"></input>
+                <input placeholder="Corner Radius" onchange="onCornerRadiusChanged(event)"/>
+                <input onchange="onheightChanged(event)"></input>
+        </div>
+
     </div>
+
+  
+
+
+
+    
+
+
+
+
 
 
     <!-- <div id="dg1" class="draggable" draggable="true">Drag me!</div>
@@ -30,7 +50,10 @@
 
 
 </body>
-<script  src="./Classes/Container.js" ></script>
+
+<script src="./global.js"></script>
+<script  src="./Classes/View.js" ></script>
+<script  src="./Classes/Page.js" ></script>
 <script  src="./Classes/Image.js" ></script>
 <script  src="./Classes/TextBox.js" ></script>
 <script src="./index.js"></script>

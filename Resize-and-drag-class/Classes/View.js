@@ -1,4 +1,4 @@
-class Container {
+class View {
     constructor(width, height, backgroundColor, content) {
         this.div = document.createElement('div');
         this.div.style.width = width;
@@ -10,22 +10,32 @@ class Container {
         this.div.style.position = 'absolute';
         this.div.style.left = '0px';
         this.div.style.top = '0px';
-        
 
         this.div.classList.add("movable");
         this.div.classList.add("resizable");
 
         // Adding Movable Property
         this.div.addEventListener("mousedown", (e) => {
+            e.stopPropagation();
             if (e.target.classList.contains('resizer')) return; // Ignore if clicking the resizer
 
+            currentSelectedContainer=this.div.id
+
             e.preventDefault();
-            let shiftX = e.clientX - this.div.getBoundingClientRect().left;
-            let shiftY = e.clientY - this.div.getBoundingClientRect().top;
+            const parentRect = this.div.parentNode.getBoundingClientRect();
+            const shiftX = e.clientX - this.div.getBoundingClientRect().left;
+            const shiftY = e.clientY - this.div.getBoundingClientRect().top;
 
             const moveAt = (pageX, pageY) => {
-                this.div.style.left = pageX - shiftX + "px";
-                this.div.style.top = pageY - shiftY + "px";
+                const newLeft = pageX - parentRect.left - shiftX;
+                const newTop = pageY - parentRect.top - shiftY;
+
+                // Constrain movement within parent bounds
+                const maxLeft = parentRect.width - this.div.offsetWidth;
+                const maxTop = parentRect.height - this.div.offsetHeight;
+
+                this.div.style.left = Math.max(0, Math.min(newLeft, maxLeft)) + "px";
+                this.div.style.top = Math.max(0, Math.min(newTop, maxTop)) + "px";
             };
 
             const onMouseMove = (e) => {
@@ -48,8 +58,6 @@ class Container {
         // Adding Resizing Functionality
         const resizer = document.createElement("div");
         resizer.classList.add("resizer");
-
-   
 
         resizer.addEventListener("mousedown", (e) => {
             e.preventDefault();
