@@ -8,9 +8,9 @@ class TextBox extends View {
         this.input = document.createElement("input")
         this.input.type = "text"
 
-        this.div.appendChild(this.input);
-        this.div.style.display = "flex"
-        this.div.style.boxSizing = "border-box"
+        this.element.appendChild(this.input);
+        this.element.style.display = "flex"
+        this.element.style.boxSizing = "border-box"
 
 
         this.input.style.height = "100%"

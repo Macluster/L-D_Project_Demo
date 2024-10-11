@@ -2,42 +2,10 @@
 
 // Example usage:
 
-function onBackgroundChanged(event) {
-
-
-
-  console.log(event.target.value)
-
-  var view = document.getElementById(currentSelectedContainer + "")
-  console.log(view)
-  view.style.backgroundColor = event.target.value
-
-}
-function onCornerRadiusChanged(event)
-{
-  console.log(event.target.value)
-
-  var view = document.getElementById(currentSelectedContainer + "")
-  console.log(view)
-  view.style.borderRadius= event.target.value + "px";
-}
-
-function onheightChanged(event) {
-
-
-
-  console.log(event.target.value)
-
-  var view = document.getElementById(currentSelectedContainer + "")
-  console.log(view)
-  view.style.height = event.target.value + "px";
-
-}
-
 const pages = [];
 function addPage() {
-  const myDiv = new Page("500px", "500px", "white", "");
-  myDiv.div.id = "page1";
+  const myDiv = new Frame("500px", "500px", "white", "");
+  myDiv.element.id = "page1";
 
   myDiv
 
@@ -50,7 +18,7 @@ const container = [];
 let viewId = 0
 function addContainer() {
   const myDiv = new View("200px", "200px", "grey", "");
-  myDiv.div.id = "v" + (viewId++)
+  myDiv.element.id = "v" + (viewId++)
 
   container.push(myDiv);
 
@@ -67,6 +35,7 @@ function addTextBox() {
 function selectImage() {
   //Adding Photo
   const fileInput = document.getElementById("fileInput");
+  
   const preview = document.createElement("img");
   preview.style.height = "100px";
   preview.style.width = "100px";
@@ -81,7 +50,7 @@ function selectImage() {
       reader.onload = function (e) {
         // Create a new reusable div instance
         const myDiv = new Image(e.target.result);
-        myDiv.div.style.borderRadius = "20px";
+        myDiv.element.style.borderRadius = "20px";
 
         // Append the div to the body
         myDiv.appendTo(".main");
@@ -90,6 +59,7 @@ function selectImage() {
       reader.readAsDataURL(file); // Read the image as a DataURL
     }
   });
+  fileInput.click()
 }
 
 // const draggable = document.getElementsByClassName("draggable")[0];

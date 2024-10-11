@@ -1,5 +1,6 @@
 
 
+
 class Image extends View
 {
 
@@ -7,8 +8,8 @@ class Image extends View
     {
         super('200px', '200px', 'blue', '');
 
-        this.div.style.backgroundImage = `url('${src}')`;
-        this.div.style.backgroundSize = "cover";
+        this.element.style.backgroundImage = `url('${src}')`;
+        this.element.style.backgroundSize = "cover";
     
 
     }

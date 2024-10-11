@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="./index.css" />
 </head>
 
-<body  >
+<body  class="body"  onkeypress="keyPress()">
     
-    <button onclick="addContainer()">Add container</button>
-    <button onclick="addTextBox()">Add TextBox</button>
-    <button onclick="addPage()">Add Page</button>
+   <nav></nav>
 
-    <input type="file" onclick="selectImage()" id="fileInput" accept="image/*">
+    <input type="file" onclick="selectImage()" style="display: none;" id="fileInput" accept="image/*">
+    <button onclick="addPage()"  >Add Frame</button>
+    <button onclick="addContainer()" src="./assets/shape.png" >add Container</button>
+    <button onclick="addTextBox()"src="./assets/text.png" >Add text</button>
+    <button onclick="selectImage()" src="./assets/landscape.png" >Add Image</button>
+ 
     <div class="main">
+       
+      
 
         <div class="work-space">
 
@@ -24,9 +29,11 @@
         <div class="tool-Property-box">
 
                 <h4 >Appearanace</h4>
-                <input placeholder="Select Colour" onchange="onBackgroundChanged(event)"></input>
+                <input type="color" onchange="onBackgroundChanged(event)"/>
+              
                 <input placeholder="Corner Radius" onchange="onCornerRadiusChanged(event)"/>
                 <input onchange="onheightChanged(event)"></input>
+
         </div>
 
     </div>
@@ -53,10 +60,11 @@
 
 <script src="./global.js"></script>
 <script  src="./Classes/View.js" ></script>
-<script  src="./Classes/Page.js" ></script>
+<script src="./Classes/Frame.js" ></script>
 <script  src="./Classes/Image.js" ></script>
 <script  src="./Classes/TextBox.js" ></script>
-<script src="./index.js"></script>
+<script  src="./index.js"></script>
+<script src="./Properties.js"></script>
 
 
 </html>
