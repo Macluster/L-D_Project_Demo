@@ -20,4 +20,10 @@
             adjustScale(-0.1);  // Decrease scale by 0.1
             event.preventDefault();  // Prevent default zoom behavior
         }
+        
+
+        if(event.key=="Delete")
+        {
+            document.getElementById(currentSelectedContainer + "").remove()
+        }
     });

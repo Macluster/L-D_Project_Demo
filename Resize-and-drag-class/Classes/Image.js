@@ -6,6 +6,7 @@ class Image extends View
 
     constructor(src)
     {
+        
         super('200px', '200px', 'blue', '');
 
         this.element.style.backgroundImage = `url('${src}')`;

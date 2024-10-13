@@ -12,15 +12,27 @@
     
    <nav></nav>
 
-    <input type="file" onclick="selectImage()" style="display: none;" id="fileInput" accept="image/*">
-    <button onclick="addPage()"  >Add Frame</button>
-    <button onclick="addContainer()" src="./assets/shape.png" >add Container</button>
-    <button onclick="addTextBox()"src="./assets/text.png" >Add text</button>
-    <button onclick="selectImage()" src="./assets/landscape.png" >Add Image</button>
+    
+
+    
+ 
  
     <div class="main">
        
-      
+        <div class="left-side-bar">
+            <div class="tools">
+                <input type="file" style="display: none;" id="fileInput" accept="image/*">
+                <button onclick="addPage()"  >Add Frame</button>
+                <button onclick="addContainer()" src="./assets/shape.png" >add Container</button>
+                <button onclick="addTextBox()"src="./assets/text.png" >Add text</button>
+                <button onclick="selectImage()" src="./assets/landscape.png" >Add Image</button>
+                <button onclick="addTable()" src="./assets/landscape.png" >Add Table</button>
+            </div>
+            <div class="layers">
+
+            </div>
+
+        </div>
 
         <div class="work-space">
 
@@ -32,8 +44,11 @@
                 <input type="color" onchange="onBackgroundChanged(event)"/>
               
                 <input placeholder="Corner Radius" onchange="onCornerRadiusChanged(event)"/>
-                <input onchange="onheightChanged(event)"></input>
+                <input placeholder="height" onchange="onheightChanged(event)"></input>
+                <input placeholder="width" onchange="onheightChanged(event)"></input>
+                <button onclick="selectBackgroundImage()"  >Add BackgroundImage</button>
 
+                <input type="file"  style="display: none;" id="backgroundImage" accept="image/*">
         </div>
 
     </div>
@@ -63,8 +78,16 @@
 <script src="./Classes/Frame.js" ></script>
 <script  src="./Classes/Image.js" ></script>
 <script  src="./Classes/TextBox.js" ></script>
+<script  src="./Classes/Table.js" ></script>
 <script  src="./index.js"></script>
 <script src="./Properties.js"></script>
+<script src="../KeyPresses.js"></script>
+
+
+
+
+
+
 
 
 </html>

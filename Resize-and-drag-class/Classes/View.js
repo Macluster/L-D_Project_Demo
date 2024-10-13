@@ -17,10 +17,13 @@ class View {
 
         // Adding Movable Property
         this.element.addEventListener("mousedown", (e) => {
+            currentSelectedContainer=this.element.id
+
+           
             e.stopPropagation();
             if (e.target.classList.contains('resizer')) return; // Ignore if clicking the resizer
 
-            currentSelectedContainer=this.element.id
+            
 
             e.preventDefault();
             const parentRect = this.element.parentNode.getBoundingClientRect();

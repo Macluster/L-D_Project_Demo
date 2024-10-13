@@ -29,4 +29,30 @@ function onBackgroundChanged(event) {
     console.log(view)
     view.style.width = event.target.value + "px";
   }
+
+  
+function selectBackgroundImage() {
+  //Adding Photo
+  const fileInput = document.getElementById("backgroundImage");
+
+  const preview = document.getElementById(currentSelectedContainer + "")
+
+
+  fileInput.addEventListener("change", async function (event) {
+    const file = event.target.files[0];
+
+    if (file) {
+      const imageUrl = await URL.createObjectURL(file);
+      console.log(imageUrl)
+
+      preview.style.backgroundRepeat = "no-repeat"
+      preview.style.backgroundSize = "cover"
+
+
+      preview.style.backgroundImage = `url('${imageUrl}')`;
+    }
+  });
+  fileInput.click()
+}
+
   

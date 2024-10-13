@@ -1,45 +1,62 @@
 
 
-// Example usage:
+
+
+//Adding Page
 
 const pages = [];
 function addPage() {
-  const myDiv = new Frame("500px", "500px", "white", "");
-  myDiv.element.id = "page1";
-
-  myDiv
-
+  const frame = new Frame("500px", "500px", "white", "");
+  frame.element.id = "page1";
   pages.push(myDiv);
-
-  myDiv.appendTo(".work-space");
+  frame.appendTo(".work-space");
 }
 
-const container = [];
+
+
+
+//Adding Table
+const tableList = [];
+let tableId = 0
+function addTable() {
+  const table = new Table("400px", "500px", "grey", "", 4, 5);
+  table.element.id = "Table" + (tableId++)
+  tableList.push(table)
+  table.appendTo("#" + pages[0].element.id);
+}
+
+
+//Adding Container
+const containerList = [];
 let viewId = 0
 function addContainer() {
-  const myDiv = new View("200px", "200px", "grey", "");
-  myDiv.element.id = "v" + (viewId++)
-
-  container.push(myDiv);
-
-  console.log();
-  myDiv.appendTo("#" + pages[0].div.id);
+  const view = new View("200px", "200px", "grey", "");
+  view.element.id = "v" + (viewId++)
+  containerList.push(view);
+  view.appendTo("#" + pages[0].element.id);
 }
 
+const textBoxList = [];
+let textBoxId = 0
 function addTextBox() {
-  const myDiv = new TextBox();
-
-  myDiv.appendTo("#" + pages[0].div.id);
+  const textBox = new TextBox();
+  textBox.element.id = "T" + (textBoxId++)
+  textBoxList.push(textBox)
+  textBox.appendTo("#" + pages[0].element.id);
 }
 
+
+const imageList=[];
+let imageId = 0
 function selectImage() {
   //Adding Photo
   const fileInput = document.getElementById("fileInput");
-  
-  const preview = document.createElement("img");
-  preview.style.height = "100px";
-  preview.style.width = "100px";
-  preview.style.backgroundColor = "green";
+
+  const imageElement = document.createElement("img");
+
+  imageElement.style.height = "100px";
+  imageElement.style.width = "100px";
+  imageElement.style.backgroundColor = "green";
 
   fileInput.addEventListener("change", function (event) {
     const file = event.target.files[0];
@@ -49,11 +66,12 @@ function selectImage() {
 
       reader.onload = function (e) {
         // Create a new reusable div instance
-        const myDiv = new Image(e.target.result);
-        myDiv.element.style.borderRadius = "20px";
+        const image = new Image(e.target.result);
+        image.element.style.borderRadius = "20px";
+        image.element.id = "I" + (imageId++);
 
         // Append the div to the body
-        myDiv.appendTo(".main");
+        image.appendTo("#" + pages[0].element.id);
       };
 
       reader.readAsDataURL(file); // Read the image as a DataURL
@@ -61,6 +79,7 @@ function selectImage() {
   });
   fileInput.click()
 }
+
 
 // const draggable = document.getElementsByClassName("draggable")[0];
 // const draggablee = document.getElementsByClassName("draggablee")[0];
