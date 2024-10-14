@@ -8,7 +8,7 @@ const pages = [];
 function addPage() {
   const frame = new Frame("500px", "500px", "white", "");
   frame.element.id = "page1";
-  pages.push(myDiv);
+  pages.push(frame);
   frame.appendTo(".work-space");
 }
 
