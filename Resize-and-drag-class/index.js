@@ -8,6 +8,7 @@ const pages = [];
 function addPage() {
   const frame = new Frame("500px", "500px", "white", "");
   frame.element.id = "page1";
+  
   pages.push(frame);
   frame.appendTo(".work-space");
 }
@@ -103,3 +104,36 @@ function selectImage() {
 //   const draggedElement = document.getElementById(data);
 //   dropzone.appendChild(draggedElement);
 // });
+
+
+function generate()
+{
+   var ele =document.getElementById("page1")
+   
+
+   downloadFile(ele.outerHTML);
+
+}
+
+
+function downloadFile(text) {
+
+
+  // Create a Blob with the text content
+  const blob = new Blob([text], { type: 'text/plain' });
+
+  // Create an anchor element
+  const a = document.createElement('a');
+
+  // Create a URL for the Blob and set it as the href of the anchor
+  a.href = URL.createObjectURL(blob);
+
+  // Set the download attribute to the desired file name
+  a.download = 'myfile.html';
+
+  // Programmatically click the anchor to trigger the download
+  a.click();
+
+  // Clean up by revoking the Object URL
+  URL.revokeObjectURL(a.href);
+}

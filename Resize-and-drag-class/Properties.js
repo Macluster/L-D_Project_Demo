@@ -17,6 +17,9 @@ function onBackgroundChanged(event) {
   
   function onheightChanged(event) {
     console.log(event.target.value)
+    var view = document.getElementById(currentSelectedContainer + "")
+    console.log(view)
+    view.style.height = event.target.value + "px";
   
 
   
@@ -27,6 +30,7 @@ function onBackgroundChanged(event) {
     console.log(event.target.value)
     var view = document.getElementById(currentSelectedContainer + "")
     console.log(view)
+    
     view.style.width = event.target.value + "px";
   }
 

@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./Css/Properties.css"/>
+
 </head>
 
 <body  class="body"  onkeypress="keyPress()">
     
-   <nav></nav>
+   <nav>
+    <button onclick="generate()">generate</button>
+   </nav>
 
     
 
@@ -23,7 +27,7 @@
             <div class="tools">
                 <input type="file" style="display: none;" id="fileInput" accept="image/*">
                 <button onclick="addPage()"  >Add Frame</button>
-                <button onclick="addContainer()" src="./assets/shape.png" >add Container</button>
+                <img onclick="addContainer()" src="./assets/shape.png" >add Container</img>
                 <button onclick="addTextBox()"src="./assets/text.png" >Add text</button>
                 <button onclick="selectImage()" src="./assets/landscape.png" >Add Image</button>
                 <button onclick="addTable()" src="./assets/landscape.png" >Add Table</button>
@@ -40,15 +44,36 @@
 
         <div class="tool-Property-box">
 
+                <h4 >Position</h4>
+
+                <h4 >Layouts</h4>
+                <div style="display: flex;justify-content: space-around;gap: 10px;">
+                    <input class="property-input" style="width: 50px;" placeholder="height" onchange="onheightChanged(event)"></input>
+                    <input class="property-input" style="width: 50px;" placeholder="width" onchange="onWidthChanged(event)"></input>
+                </div>
+               
                 <h4 >Appearanace</h4>
+                <div class="property-input" >
+                    <img src="./assets/PropertyIcons/corner.png"/>
+                    <input class="property-input" style="width: 50px;" placeholder="Corner Radius" onchange="onCornerRadiusChanged(event)"/>
+                </div>
+                <h4 >Fill</h4>
                 <input type="color" onchange="onBackgroundChanged(event)"/>
+                <h4 >Appearanace</h4>
+
+
               
-                <input placeholder="Corner Radius" onchange="onCornerRadiusChanged(event)"/>
-                <input placeholder="height" onchange="onheightChanged(event)"></input>
-                <input placeholder="width" onchange="onheightChanged(event)"></input>
+               
+              
+               
+               
                 <button onclick="selectBackgroundImage()"  >Add BackgroundImage</button>
 
                 <input type="file"  style="display: none;" id="backgroundImage" accept="image/*">
+        </div>
+
+        <div class="output">
+
         </div>
 
     </div>
